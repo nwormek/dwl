@@ -35,10 +35,10 @@ static int log_level = WLR_ERROR;
 
 static const Rule rules[] = {
 	/* app_id     title       tags mask     isfloating   monitor */
-	/* examples:
-	{ "Gimp",     NULL,       0,            1,           -1 },
-	*/
-	{ "firefox",  NULL,       1 << 8,       0,           -1 },
+	/* examples: */
+//	{ "Gimp",     NULL,       0,            1,           -1 },
+	{ NULL,   "Bild im Bild", TAGMASK,      0,           -1 },
+//	{ "firefox",  NULL,       1 << 8,       0,           -1 },
 };
 
 /* layout(s) */
@@ -130,7 +130,10 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 
 /* commands */
 static const char *termcmd[] = { "foot", NULL };
-static const char *menucmd[] = { "bemenu-run", NULL };
+//static const char *menucmd[] = { "bemenu-run", NULL };
+static const char *menucmd[] = { "bemenu-run", "-c", "-l10", "-W0.3",
+                                 "--fixed-height", "-B3", "--prompt=Run:",
+                                 NULL };
 
 static const Key keys[] = {
 	/* Note that Shift changes certain key codes: c -> C, 2 -> at, etc. */
@@ -166,6 +169,13 @@ static const Key keys[] = {
 
 	{ MODKEY,                    XKB_KEY_0,          view,           {.ui = ~0} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_equal,      tag,            {.ui = ~0} },
+
+	{ 0,                  XKB_KEY_XF86AudioRaiseVolume, spawn, SHCMD("sb-volume +") },
+	{ 0,                  XKB_KEY_XF86AudioLowerVolume, spawn, SHCMD("sb-volume -") },
+	{ 0,                  XKB_KEY_XF86AudioMute,        spawn, SHCMD("sb-volume m") },
+	{ WLR_MODIFIER_SHIFT, XKB_KEY_XF86AudioRaiseVolume, spawn, SHCMD("sb-volume m+") },
+	{ WLR_MODIFIER_SHIFT, XKB_KEY_XF86AudioLowerVolume, spawn, SHCMD("sb-volume m-") },
+	{ WLR_MODIFIER_SHIFT, XKB_KEY_XF86AudioMute,        spawn, SHCMD("sb-volume mm") },
 
 	TAGKEYS(          XKB_KEY_1, XKB_KEY_exclam,                     0),
 	TAGKEYS(          XKB_KEY_2, XKB_KEY_quotedbl,                   1),
