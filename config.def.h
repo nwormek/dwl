@@ -180,6 +180,10 @@ static const Key keys[] = {
 	{ WLR_MODIFIER_SHIFT, XKB_KEY_XF86AudioMute,        spawn, SHCMD("sb-volume mm") },
 	{ 0,                  XKB_KEY_XF86AudioMicMute,     spawn, SHCMD("sb-volume mm") },
 
+	{ 0,                  XKB_KEY_XF86AudioPrev,        spawn, SHCMD("sb-media s-") },
+	{ 0,                  XKB_KEY_XF86AudioPlay,        spawn, SHCMD("sb-media pp") },
+	{ 0,                  XKB_KEY_XF86AudioNext,        spawn, SHCMD("sb-media s+") },
+
 	TAGKEYS(          XKB_KEY_1, XKB_KEY_exclam,                     0),
 	TAGKEYS(          XKB_KEY_2, XKB_KEY_quotedbl,                   1),
 	TAGKEYS(          XKB_KEY_3, XKB_KEY_section,                    2),
