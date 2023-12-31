@@ -23,6 +23,8 @@ static const char *const autostart[] = {
 	"systemctl", "--user", "import-environment", "WAYLAND_DISPLAY", "XDG_CURRENT_DESKTOP=dwl", NULL,
 	/* autostart */
 	"dwlblocks", NULL,
+	"swww-daemon", NULL,
+	"dm-wallpaper", "-r", NULL,
 	/* terminate */
         NULL
 };
@@ -164,8 +166,8 @@ static const Key keys[] = {
 	// { MODKEY,                    XKB_KEY_e,         togglefullscreen, {0} },
 	{ MODKEY,                    XKB_KEY_comma,      focusmon,       {.i = WLR_DIRECTION_LEFT} },
 	{ MODKEY,                    XKB_KEY_period,     focusmon,       {.i = WLR_DIRECTION_RIGHT} },
-	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_less,       tagmon,         {.i = WLR_DIRECTION_LEFT} },
-	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_greater,    tagmon,         {.i = WLR_DIRECTION_RIGHT} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_semicolon,  tagmon,         {.i = WLR_DIRECTION_LEFT} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_colon,      tagmon,         {.i = WLR_DIRECTION_RIGHT} },
 
 	{ MODKEY,                    XKB_KEY_0,          view,           {.ui = ~0} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_equal,      tag,            {.ui = ~0} },
@@ -176,6 +178,7 @@ static const Key keys[] = {
 	{ WLR_MODIFIER_SHIFT, XKB_KEY_XF86AudioRaiseVolume, spawn, SHCMD("sb-volume m+") },
 	{ WLR_MODIFIER_SHIFT, XKB_KEY_XF86AudioLowerVolume, spawn, SHCMD("sb-volume m-") },
 	{ WLR_MODIFIER_SHIFT, XKB_KEY_XF86AudioMute,        spawn, SHCMD("sb-volume mm") },
+	{ 0,                  XKB_KEY_XF86AudioMicMute,     spawn, SHCMD("sb-volume mm") },
 
 	TAGKEYS(          XKB_KEY_1, XKB_KEY_exclam,                     0),
 	TAGKEYS(          XKB_KEY_2, XKB_KEY_quotedbl,                   1),
