@@ -23,8 +23,7 @@ static const char *const autostart[] = {
 	"systemctl", "--user", "import-environment", "WAYLAND_DISPLAY", "XDG_CURRENT_DESKTOP=dwl", NULL,
 	/* autostart */
 	"dwlblocks", NULL,
-	"swww-daemon", NULL,
-	"dm-wallpaper", "-r", NULL,
+	"dwl-autostart", NULL,
 	/* terminate */
         NULL
 };
