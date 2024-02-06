@@ -22,8 +22,8 @@ static const char *const autostart[] = {
 	"sh", "-c", "XDG_CURRENT_DESKTOP=dwl; systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP", NULL,
 	"systemctl", "--user", "import-environment", "WAYLAND_DISPLAY", "XDG_CURRENT_DESKTOP=dwl", NULL,
 	/* autostart */
-	"dwlblocks", NULL,
 	"dwl-autostart", NULL,
+	"dwlblocks", NULL,
 	/* terminate */
         NULL
 };
@@ -151,9 +151,9 @@ static const Key keys[] = {
 	{ MODKEY,                    XKB_KEY_h,          setmfact,       {.f = -0.05} },
 	{ MODKEY,                    XKB_KEY_l,          setmfact,       {.f = +0.05} },
 
-	{ MODKEY,                    XKB_KEY_Return,     zoom,           {0} },
-	{ MODKEY,                    XKB_KEY_Tab,        view,           {0} },
-	{ MODKEY,                    XKB_KEY_g,          togglegaps,     {0} },
+	// { MODKEY,                    XKB_KEY_Return,     zoom,           {0} },
+	// { MODKEY,                    XKB_KEY_Tab,        view,           {0} },
+	// { MODKEY,                    XKB_KEY_g,          togglegaps,     {0} },
 
 	{ MODKEY,                    XKB_KEY_q,          killclient,     {0} },
 
@@ -162,7 +162,7 @@ static const Key keys[] = {
 	{ MODKEY,                    XKB_KEY_m,          setlayout,      {.v = &layouts[2]} },
 
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_space,      togglefloating, {0} },
-	// { MODKEY,                    XKB_KEY_e,         togglefullscreen, {0} },
+	// { MODKEY,                    XKB_KEY_f,         togglefullscreen, {0} },
 	{ MODKEY,                    XKB_KEY_comma,      focusmon,       {.i = WLR_DIRECTION_LEFT} },
 	{ MODKEY,                    XKB_KEY_period,     focusmon,       {.i = WLR_DIRECTION_RIGHT} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_semicolon,  tagmon,         {.i = WLR_DIRECTION_LEFT} },
